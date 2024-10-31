@@ -37,3 +37,20 @@ Alternativa: minilibx de Codam &rarr; [AQUÍ](https://github.com/42-Fundacion-Te
 
 Cómo hacerte el Makefile: https://github.com/codam-coding-college/MLX42/blob/master/docs/Basics.md
 
+### Funciones de la minilibx
+
+| ***mlx_init()***   |                 |
+|------------------|-----------------|
+| ¿Qué hace?      | Inicializa el entorno gráfico y crea una ventana |
+| Prototipo         | mlx_t* mlx_init(int32_t width, int32_t height, const char* title, bool resize)|
+| Parámetros   | width: ancho <br> height: alto <br> title: título <br> resize: true o false, si la ventana cambia de tamaño o no|
+| Return   | Devuelve un puntero a la estructura mlx_t inicializada. |
+
+| ***mlx_new_image()***   |                 |
+|------------------|-----------------|
+| ¿Qué hace?      | Crea una nueva imagen en memoria, configura sus propiedades básicasm prepara una textura OpenGL asociada y la registra en el sistema MLX|
+| Prototipo         | mlx_image_t* mlx_new_image(mlx_t* mlx, uint32_t width, uint32_t height)|
+| Parámetros   |   |
+| Return   | Devuelve un puntero a la nueva imagen creada.|
+
+
