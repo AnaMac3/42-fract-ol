@@ -28,5 +28,12 @@ Hay que usar la librería gráfica miniLibx. Guía &rarr; [AQUÍ]([ibs/minilibx]
 (ESTA INFOR ESTÁ EN minilibx-linux/man/man1/mlx.1 y el resto de docs en este directorio)
 
 Alternativa: minilibx de Codam &rarr; [AQUÍ](https://github.com/42-Fundacion-Telefonica/MLX42)
+  -  Seguir instrucciones para descarga y build de MLX42
+  -  Se genera la librería libmlx42.a en la carpeta build de MLX42
+  -  Falgs para linkear tu proyecto con la librería: -Iinclude -ldl -lglfw -pthread -lm
+  -  Leer el README ...
+      - no me deja instalar estas opciones: cmake -B build && cmake --build build --parallel --config (Debug|Release|RelWithDebInfo|MinSizeRel) --target install; dice que no tengo permisos de acceso a los directorios
+      - cmake -DBUILD_TESTS=ON -B build && cmake --build build --parallel : tests para comprobar la integridad de la librería. Para usarlo --> ctest --output-on-failure --test-dir build
 
+Cómo hacerte el Makefile: https://github.com/codam-coding-college/MLX42/blob/master/docs/Basics.md
 
