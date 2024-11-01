@@ -114,3 +114,15 @@ MLX_NONNULL(mlx) -> asegura que mlx no sea NULL. <br> Control de bucle. <br> Con
 | Parámetros   |mlx: estructura mlx_t inicializada por mlx_init(). <br> key: código de la tecla que se quiere verificar |
 | Return   | Devuelve true si la tecla está presionada, y false si no lo está.|
 
+***FUNCIONES DE IMÁGENES***
+
+| ***mlx_new_image()***   |                 |
+|------------------|-----------------|
+| ¿Qué hace?      | Crea una nueva imagen dentro de una biblioteca gráfica.|
+| Prototipo         |mlx_image_t* mlx_new_image(mlx_t* mlx, uint32_t width, uint32_t height)|
+| Parámetros   |mlx: estructura mlx_t inicializada por mlx_init(). <br> width: ancho en píxeles <br> height: alto en píxeles |
+| Return   | Devuelve un puntero a mlx_image_t, la nueva imagen creada.|
+
+***OTRAS COSAS***
+
+Estructura GLFWwindow de la biblioteca GLFW. Representa una ventana y su contexto de OpenGL asociado. GLFWwindow almacena datos relacionados con eventos como el teclado, el ratón y el cambio de tamaño de la ventana. El callback de cambio de tamaño es glfwSetWindowSizeCallback, y usa GLFWwindow para detectar cuando el usuario ajusta las dimensiones de la ventana.
