@@ -126,3 +126,15 @@ MLX_NONNULL(mlx) -> asegura que mlx no sea NULL. <br> Control de bucle. <br> Con
 ***OTRAS COSAS***
 
 Estructura GLFWwindow de la biblioteca GLFW. Representa una ventana y su contexto de OpenGL asociado. GLFWwindow almacena datos relacionados con eventos como el teclado, el ratón y el cambio de tamaño de la ventana. El callback de cambio de tamaño es glfwSetWindowSizeCallback, y usa GLFWwindow para detectar cuando el usuario ajusta las dimensiones de la ventana.
+
+### MANDELBROT
+
+
+
+
+
+
+
+
+
+
