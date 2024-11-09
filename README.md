@@ -129,8 +129,7 @@ Estructura GLFWwindow de la biblioteca GLFW. Representa una ventana y su context
 
 ### MANDELBROT
 
-
-
+<img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/Untitled-2024-10-25-1038.png" alt="Mandelbrot" width="900" />
 
 
 
