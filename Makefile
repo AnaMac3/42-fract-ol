@@ -16,7 +16,7 @@ HEADERS= -I ./include -I $(MLX_DIR)/include/MLX42
 
 LINK_FLAGS= -ldl -lglfw -pthread -lm
 
-SRC_FILES= main.c events.c create_img.c hook_prueba.c mandelbrot.c
+SRC_FILES= main.c events.c draw.c color.c mandelbrot.c julia.c
 
 OBJ_DIR= ./obj
 OBJ_FILES= $(addprefix $(OBJ_DIR)/,$(SRC_FILES:.c=.o))

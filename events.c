@@ -6,69 +6,94 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 11:39:06 by amacarul          #+#    #+#             */
-/*   Updated: 2024/11/08 19:23:24 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/11/10 14:22:57 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libfractol.h"
 
-static void	zoom(t_fractol *f, double zoom_factor)
+/*Zooms in on a fractal, centering on the mouse position.
+	- Gets the current mouse position in the window.
+	- Converts the mouse coordinates to corresponding coordinates
+	in the complex plane (mouse_cx, mouse_cy).
+	- Adjusts the visible area (min_x, max_x, min_y, max_y)
+	of the fractal based on the mouse position and zoom factor.
+	- Redraws the fractal.
+*/
+void	fct_zoom(t_fractol *f, double zoom_factor)
 {
 	int32_t	mouse_x;
 	int32_t	mouse_y;
-	double	mouse_r;
-	double	mouse_i;
+	double	mouse_cx;
+	double	mouse_cy;
 
 	mlx_get_mouse_pos(f->mlx, &mouse_x, &mouse_y);
-	mouse_r = f->min_x + (f->max_x - f->min_x) * (mouse_x / (double)WIDTH);
-	mouse_i = f->min_y + (f->max_y - f->min_y) * (mouse_y / (double)HEIGHT);
-	f->min_x = mouse_r - (mouse_r - f->min_x) / zoom_factor;
-	f->max_x = mouse_r + (f->max_x - mouse_r) / zoom_factor;
-	f->min_y = mouse_i - (mouse_i - f->min_y) / zoom_factor;
-	f->max_y = mouse_i + (f->max_y - mouse_i) / zoom_factor;
+	mouse_cx = f->min_x + (f->max_x - f->min_x) * (mouse_x / (double)WIDTH);
+	mouse_cy = f->min_y + (f->max_y - f->min_y) * (mouse_y / (double)HEIGHT);
+	f->min_x = mouse_cx - (mouse_cx - f->min_x) / zoom_factor;
+	f->max_x = mouse_cx + (f->max_x - mouse_cx) / zoom_factor;
+	f->min_y = mouse_cy - (mouse_cy - f->min_y) / zoom_factor;
+	f->max_y = mouse_cy + (f->max_y - mouse_cy) / zoom_factor;
 	fct_draw_fractal(f);
 }
 
-static void	change_color(t_fractol *f)
+/*Selects the next palette of colors*/
+void	fct_change_color(t_fractol *f)
 {
-	f->current_palette = (f->current_palette + 1) % 3;
+	f->palette_index = (f->palette_index + 1) % 3;
+	ft_printf("showing palette num: %i\n", f->palette_index);
 	fct_draw_fractal(f);
 }
 
+void	fct_change_julia(t_fractol *f)
+{
+	f->pattern_index = (f->pattern_index + 1) % 7;
+	fct_set_julia_pattern(f, f->patterns[f->pattern_index].name);
+	ft_printf("showing %s\n", f->patterns[f->pattern_index].name);
+	fct_draw_fractal(f);
+	
+}
+
+/*Callback for mlx_key_hook, for handling key events.
+	- closes the window when ESC key is pressed
+	- zooms in or out when + or - keys are pressed
+	- changes the color palette when SPACE key is pressed
+*/
 void	fct_key_event(mlx_key_data_t data, void *param)
 {
 	t_fractol	*f;
 
 	f = (t_fractol *)param;
-	if (data.key == MLX_KEY_ESCAPE)
-		mlx_close_window(f->mlx);//ver que habrá que cerrar más cosas o limpiarlas
-	else if (data.key == MLX_KEY_KP_ADD)
-		zoom(f, 2);
-	else if (data.key == MLX_KEY_KP_SUBTRACT)
-		zoom(f, 0.5);
-	/*else if (data.key == MLX_KEY_UP ||data.key == MLX_KEY_W)
-		ft_printf("Aquí habría que moverse arriba\n");
-	else if (data.key == MLX_KEY_DOWN || data.key ==  MLX_KEY_S)
-		ft_printf("Aquí habría que moverse abajo\n");
-	else if (data.key == MLX_KEY_LEFT || data.key == MLX_KEY_A)
-		ft_printf("Aquí habría que moverse a la izq\n");
-	else if (data.key == MLX_KEY_RIGHT || data.key == MLX_KEY_D)
-		ft_printf("Aquí habría que moverse a la dcha\n");*/
-	else if (data.key == MLX_KEY_SPACE)
-		change_color(f);
+	if (data.key == MLX_KEY_ESCAPE && data.action == MLX_PRESS)
+		mlx_close_window(f->mlx);
+	else if (data.key == MLX_KEY_KP_ADD && data.action == MLX_PRESS)
+		fct_zoom(f, 1.1);
+	else if (data.key == MLX_KEY_KP_SUBTRACT && data.action == MLX_PRESS)
+		fct_zoom(f, 0.9);
+	else if (data.key == MLX_KEY_SPACE && data.action == MLX_PRESS)
+		fct_change_color(f);
+	else if (data.key == MLX_KEY_ENTER && data.action == MLX_PRESS)
+	{
+		if (ft_strcmp(f->name, "julia") == 0 )
+			fct_change_julia(f);
+	}
 }
 
+/*Callback for mlx_scroll_hook, for handling mouse scroll.
+	- zooms in when scrolling up (ydelta > 0)
+	- zooms out when scrolling down (ydelta < 0)
+*/
 void	fct_mouse_scroll(double xdelta, double ydelta, void *param)
 {
 	t_fractol	*f;
 
 	f = (t_fractol *)param;
 	if (ydelta > 0)
-		zoom(f, 1.1);
+		fct_zoom(f, 1.1);
 	else if (ydelta < 0)
-		zoom(f, 0.9);
+		fct_zoom(f, 0.9);
 	if (xdelta > 0)
-		ft_printf("Scroll para la derecha\n");
+		ft_printf("dcha\n");
 	else if (xdelta < 0)
-		ft_printf("Scroll para la izquierda\n");
+		ft_printf("izq\n");
 }

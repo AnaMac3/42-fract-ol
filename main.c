@@ -6,82 +6,48 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 11:11:33 by amacarul          #+#    #+#             */
-/*   Updated: 2024/11/08 19:20:44 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/11/10 14:22:27 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libfractol.h"
 
-//imprime mensaje error en stderr usando mlx_streror(mlx_errno),
-//que convierte un codigo error en una cadena de caracteres legibles.
-//deberia usar perror o strerror, porque fprintf no puedo usar.
-void	ft_error(void)
+/*void	fct_error_exit(t_fractol *f)
 {
-	ft_putstr_fd(strerror(mlx_errno), 2);
+	fct_free_fractol(f);
+	ft_putstr_fd("Error\n", 2);
 	exit(EXIT_FAILURE);
+}*/
+
+void	fct_free_fractol(t_fractol *f)
+{
+	if (!f)
+		return ;
+	if (f->img)
+	{
+		mlx_delete_image(f->mlx, f->img);
+		f->img = NULL;
+	}
+	if (f->mlx)
+	{
+		mlx_terminate(f->mlx);
+		f->mlx = NULL;
+	}
 }
 
+/*Displays an help message and exits if mode == 1.*/
 void	fct_help_msg(void)
 {
-	ft_putstr_fd("Please, select a fractal type:\n", 1);
-	ft_putstr_fd("For Julia, write 'julia'\n", 1);
-	ft_putstr_fd("For Mandelbrot, write 'mandelbrot'\n", 1);
-	exit(EXIT_FAILURE);
-}
-
-void	init_mandelbrot(t_fractol *f)
-{
-	f->name = "mandelbrot";
-	f->zoom_level = 300;
-	f->min_x = -2.0;
-	f->max_x = 1.0;
-	f->min_y = -1.5;
-	f->max_y = 1.5;
-	f->offset_x = -0.5;
-	f->offset_y = 0;
-	f->palettes[0].colors[0] = (t_color){255, 20, 147};
-	f->palettes[0].colors[1] = (t_color){50, 205, 50};
-	f->palettes[0].colors[2] = (t_color){0, 191, 255};
-	f->palettes[0].colors[3] = (t_color){255, 255, 0};
-	f->palettes[1].colors[0] = (t_color){255, 102, 0};
-	f->palettes[1].colors[1] = (t_color){138, 43, 226};
-	f->palettes[1].colors[2] = (t_color){0, 255, 255};
-	f->palettes[1].colors[3] = (t_color){255, 0, 102};
-	f->palettes[2].colors[0] = (t_color){20, 244, 215};
-	f->palettes[2].colors[1] = (t_color){30, 21, 226}; 
-	f->palettes[2].colors[2] = (t_color){244, 21, 57};
-	f->palettes[2].colors[3] = (t_color){187, 101, 222};
-	f->current_palette = 0;
-	f->color_index = 0;
-}
-
-void	init_julia(t_fractol *f)
-{
-	f->name = "julia";
-	//AQUI A VER QUÉ HAY QUE PONER
-	//
-	//
-	f->zoom_level = 300;
-	f->min_x = -2.0;
-	f->max_x = 1.0;
-	f->min_y = -1.5;
-	f->max_y = 1.5;
-	f->offset_x = -0.5;
-	f->offset_y = 0;
-	f->palettes[0].colors[0] = (t_color){255, 20, 147};
-	f->palettes[0].colors[1] = (t_color){50, 205, 50};
-	f->palettes[0].colors[2] = (t_color){0, 191, 255};
-	f->palettes[0].colors[3] = (t_color){255, 255, 0};
-	f->palettes[1].colors[0] = (t_color){255, 102, 0};
-	f->palettes[1].colors[1] = (t_color){138, 43, 226};
-	f->palettes[1].colors[2] = (t_color){0, 255, 255};
-	f->palettes[1].colors[3] = (t_color){255, 0, 102};
-	f->palettes[2].colors[0] = (t_color){20, 244, 215};
-	f->palettes[2].colors[1] = (t_color){30, 21, 226}; 
-	f->palettes[2].colors[2] = (t_color){244, 21, 57};
-	f->palettes[2].colors[3] = (t_color){187, 101, 222};
-	f->current_palette = 0;
-	f->color_index = 0;
+	ft_putstr_fd("Usage: ./fractol fractal_type julia_pattern\n\n", 1);
+	ft_putstr_fd("fractal_type:\n - 'mandelbrot'\n - 'julia'\n\n", 1);
+	ft_putstr_fd("julia_pattern (only if fractal_type == 'julia'):\n", 1);
+	ft_putstr_fd(" - 'pattern_1' for c = 0.279\n", 1);
+	ft_putstr_fd(" - 'pattern_2' for c = 0.8, 0.156i\n", 1);
+	ft_putstr_fd(" - 'pattern_3' for c = -0.70176, 0.6506i\n", 1);
+	ft_putstr_fd(" - 'pattern_4' for c = 0.285, 0.01i\n", 1);
+	ft_putstr_fd(" - 'pattern_5' for c =  0.279, 0.0i\n", 1);
+	ft_putstr_fd(" - 'pattern_6' for c = -0.4, 0.6i\n", 1);
+	ft_putstr_fd(" - 'pattern_3' for c = 0.355, 0.355i\n", 1);
 }
 
 //Inicializar la estructura fractol
@@ -97,9 +63,41 @@ void	fct_init_fractol(t_fractol *f, char	**argv)
 		exit(EXIT_FAILURE);
 	}
 	if (ft_strcmp(argv[1], "mandelbrot") == 0)
-		init_mandelbrot(f);
+		fct_init_mandelbrot(f);
 	else if (ft_strcmp(argv[1], "julia") == 0)
-		init_julia(f);
+		fct_init_julia(f, argv[2]);
+}
+int	fct_check_args(int argc, char **argv)
+{
+	int error;
+
+	error = 0;
+	if (argc < 2 || argc > 3)
+		error = 1;
+	else if (ft_strcmp(argv[1], "julia") == 0)
+	{
+		if (argc != 3)
+			error = 1;
+		else
+		{
+			if (ft_strlen(argv[2]) != 9)
+				error = 1;
+			else if (ft_strncmp(argv[2], "pattern_", 8) != 0)
+				error = 1;
+			else if (argv[2][8] < '1' || argv[2][8] > '7')
+				error = 1;
+		}
+	}
+	else if (ft_strcmp(argv[1], "mandelbrot") != 0)
+		error = 1;
+	else if (ft_strcmp(argv[1], "mandelbrot") == 0 && argc != 2)
+		error = 1;
+	if (error == 1)
+	{
+		fct_help_msg();
+		return (-1);
+	}
+	return (0);
 }
 
 //main de prueba
@@ -107,24 +105,13 @@ int	main(int argc, char **argv)
 {
 	t_fractol	f;
 
-	if (argc < 2)
-		fct_help_msg();
-	if (ft_strcmp(argv[1], "julia") != 0)
-	{
-		if (ft_strcmp(argv[1], "mandelbrot") != 0)
-			fct_help_msg();
-	}
+	if (fct_check_args(argc, argv) < 0)
+		exit(EXIT_FAILURE);
 	fct_init_fractol(&f, argv);
-	//renderizadp
-	//fct_put_img(&f);
-	//mlx_hook
 	mlx_key_hook(f.mlx, fct_key_event, (void *)&f);
 	mlx_scroll_hook(f.mlx, fct_mouse_scroll, (void *)&f);
-	//mlx_resize_hook(f.mlx, fct_resize_callback, (void *)&f);
 	fct_draw_fractal(&f);
-	//Si f es una variable de tipo t_fractol en lugar de un puntero,
-	//hay que acceder a sus miembros mediante . en vez de con ->
 	mlx_loop(f.mlx);
-	mlx_terminate(f.mlx);
-	return (EXIT_SUCCESS);	
+	fct_free_fractol(&f);
+	exit (EXIT_SUCCESS);	
 }
