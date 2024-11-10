@@ -6,18 +6,11 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 11:11:33 by amacarul          #+#    #+#             */
-/*   Updated: 2024/11/10 14:22:27 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/11/10 17:07:31 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libfractol.h"
-
-/*void	fct_error_exit(t_fractol *f)
-{
-	fct_free_fractol(f);
-	ft_putstr_fd("Error\n", 2);
-	exit(EXIT_FAILURE);
-}*/
 
 void	fct_free_fractol(t_fractol *f)
 {
@@ -41,13 +34,14 @@ void	fct_help_msg(void)
 	ft_putstr_fd("Usage: ./fractol fractal_type julia_pattern\n\n", 1);
 	ft_putstr_fd("fractal_type:\n - 'mandelbrot'\n - 'julia'\n\n", 1);
 	ft_putstr_fd("julia_pattern (only if fractal_type == 'julia'):\n", 1);
+	ft_putstr_fd(" - 'pattern_f' for c = mouse position when click\n", 1);
 	ft_putstr_fd(" - 'pattern_1' for c = 0.279\n", 1);
 	ft_putstr_fd(" - 'pattern_2' for c = 0.8, 0.156i\n", 1);
 	ft_putstr_fd(" - 'pattern_3' for c = -0.70176, 0.6506i\n", 1);
 	ft_putstr_fd(" - 'pattern_4' for c = 0.285, 0.01i\n", 1);
 	ft_putstr_fd(" - 'pattern_5' for c =  0.279, 0.0i\n", 1);
 	ft_putstr_fd(" - 'pattern_6' for c = -0.4, 0.6i\n", 1);
-	ft_putstr_fd(" - 'pattern_3' for c = 0.355, 0.355i\n", 1);
+	ft_putstr_fd(" - 'pattern_7' for c = 0.355, 0.355i\n", 1);
 }
 
 //Inicializar la estructura fractol
@@ -85,7 +79,8 @@ int	fct_check_args(int argc, char **argv)
 			else if (ft_strncmp(argv[2], "pattern_", 8) != 0)
 				error = 1;
 			else if (argv[2][8] < '1' || argv[2][8] > '7')
-				error = 1;
+				if (argv[2][8] != 'f')
+					error = 1;
 		}
 	}
 	else if (ft_strcmp(argv[1], "mandelbrot") != 0)

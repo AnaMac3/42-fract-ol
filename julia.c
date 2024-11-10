@@ -6,7 +6,7 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 13:44:10 by amacarul          #+#    #+#             */
-/*   Updated: 2024/11/10 14:20:24 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/11/10 17:16:38 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,15 @@ void	fct_set_julia_pattern(t_fractol *f, char *pattern)
 {
 	int	i;
 
+	if (ft_strcmp(pattern, "pattern_f") == 0)
+	{
+		f->patterns[0] = (t_pattern){"pattern_f", 0, 0};
+		ft_printf("Press Ctrl and click a point in the window\n");
+		f->cx = 0;
+		f->cy = 0;
+		/*mlx_mouse_hook(f->mlx, fct_mouse_click, (void *)f);*/
+		return ;
+	}
 	f->patterns[0] = (t_pattern){"pattern_1", 0.279, 0.00};
 	f->patterns[1] = (t_pattern){"pattern_2", -0.8, 0.156};
 	f->patterns[2] = (t_pattern){"pattern_3", -0.70176, 0.6506};
@@ -42,13 +51,13 @@ void	fct_set_julia_pattern(t_fractol *f, char *pattern)
 void	fct_init_julia(t_fractol *f, char *pattern)
 {
 	f->name = "julia";
-	fct_set_julia_pattern(f, pattern);
 	f->min_x = -1.5;
 	f->max_x = 1.5;
 	f->min_y = -1.5; 
 	f->max_y = 1.5;
 	f->offset_x = 0.0;
 	f->offset_y = 0;
+	fct_set_julia_pattern(f, pattern);
 	f->palettes[0].colors[0] = (t_color){3, 47, 254};   // Azul eléctrico (intensificado)
 	f->palettes[0].colors[1] = (t_color){255, 230, 0};   // Amarillo brillante (intensificado)
 	f->palettes[0].colors[2] = (t_color){0, 255, 41};    // Verde neón (intensificado)
@@ -75,7 +84,7 @@ void	fct_julia(t_fractol *f)
 	max_iterations = fct_max_iterations(f);
 	f->zx = f->min_x + (f->max_x - f->min_x) * ((double)f->x / WIDTH);
 	f->zy = f->min_y + (f->max_y - f->min_y) * ((double)f->y / HEIGHT);
-
+	
 	while (++ n < max_iterations)
 	{
 		if (f->zx * f->zx + f->zy * f->zy > 4.0)
@@ -85,5 +94,7 @@ void	fct_julia(t_fractol *f)
 		f->zx = tmp;
 	}
 	f->final_color = fct_color_from_palette(f, n, max_iterations);
+	if (ft_strcmp(f->patterns[0].name, "pattern_f") == 0)
+		mlx_mouse_hook(f->mlx, fct_mouse_click, (void *)f);
 	mlx_put_pixel(f->img, f->x, f->y, f->final_color);
 }

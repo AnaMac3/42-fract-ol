@@ -6,7 +6,7 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 11:39:06 by amacarul          #+#    #+#             */
-/*   Updated: 2024/11/10 14:22:57 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/11/10 17:12:23 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,11 @@ void	fct_key_event(mlx_key_data_t data, void *param)
 		fct_change_color(f);
 	else if (data.key == MLX_KEY_ENTER && data.action == MLX_PRESS)
 	{
-		if (ft_strcmp(f->name, "julia") == 0 )
-			fct_change_julia(f);
+		if (ft_strcmp(f->name, "julia") == 0)
+		{
+			if (ft_strcmp( f->patterns[0].name, "pattern_f"))
+				fct_change_julia(f);
+		}
 	}
 }
 
@@ -96,4 +99,30 @@ void	fct_mouse_scroll(double xdelta, double ydelta, void *param)
 		ft_printf("dcha\n");
 	else if (xdelta < 0)
 		ft_printf("izq\n");
+	ft_printf("cx = %d\ncy = %d\n", f->cx, f->cy);
+}
+
+/*Callback for mlx_mouse_hook*/
+void	fct_mouse_click(mouse_key_t button, action_t action, modifier_key_t mods, void *param)
+{
+	t_fractol	*f;
+	int32_t	mouse_x;
+	int32_t	mouse_y;
+	
+	f = (t_fractol *)param;
+	if (button == MLX_MOUSE_BUTTON_LEFT && action == MLX_PRESS)
+	{
+		if (mods & MLX_CONTROL)
+		{
+			mlx_get_mouse_pos(f->mlx, &mouse_x, &mouse_y);
+			f->cx = (mouse_x / (double)WIDTH) * (f->max_x - f->min_x) + f->min_x;
+			f->cy = (mouse_y / (double)HEIGHT) * (f->max_y - f->min_y) + f->min_y;
+			fct_draw_fractal(f);
+		}
+		/*mlx_get_mouse_pos(f->mlx, &mouse_x, &mouse_y);
+		f->cx = (mouse_x / (double)WIDTH) * (f->max_x - f->min_x) + f->min_x;
+		f->cy = (mouse_y / (double)HEIGHT) * (f->max_y - f->min_y) + f->min_y;
+		if (mods & MLX_CONTROL)
+			fct_draw_fractal(f);*/
+	}
 }

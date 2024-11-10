@@ -6,7 +6,7 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 13:17:58 by amacarul          #+#    #+#             */
-/*   Updated: 2024/11/10 14:26:23 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/11/10 16:34:01 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 # include <MLX42.h>
 # include <stdio.h>
 # include <string.h>
-# include <math.h>
+# include <math.h> 
 
 # include <stdlib.h>
 # include <stdbool.h>
 
 # define WIDTH 1000
 # define HEIGHT 1000
-# define BASE_ITER 80
+# define BASE_ITER 50
 # define ITER_INCREMENT 10
 # define MAX_ZOOM 10000
 # define MIN_ZOOM 1
@@ -104,5 +104,6 @@ void	fct_change_color(t_fractol *f);
 void	fct_change_julia(t_fractol *f);
 void	fct_key_event(mlx_key_data_t data, void *param);
 void	fct_mouse_scroll(double xdelta, double ydelta, void *param);
+void	fct_mouse_click(mouse_key_t button, action_t action, modifier_key_t mods, void *param);
 
 #endif
