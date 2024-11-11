@@ -6,12 +6,18 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 14:13:01 by amacarul          #+#    #+#             */
-/*   Updated: 2024/11/10 14:16:21 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/11/11 19:14:14 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libfractol.h"
 
+/*Draws the fractal
+	- Iterates through each pixel in the x and y axis, from 0 to the
+	width and height of the window
+	- Computes the corresponding fractal (mandelbrot, julia) for each pixel
+	- Displays the resulting image in the window
+*/
 int	fct_draw_fractal(t_fractol *f)
 {
 	f->x = 0;
@@ -24,6 +30,8 @@ int	fct_draw_fractal(t_fractol *f)
 				fct_mandelbrot(f);
 			else if (ft_strcmp(f->name, "julia") == 0)
 				fct_julia(f);
+			else if (ft_strcmp(f->name, "burning_ship") == 0)
+				fct_burning_ship(f);
 			f->y ++;
 		}
 		f->x ++;
@@ -31,7 +39,7 @@ int	fct_draw_fractal(t_fractol *f)
 	if (mlx_image_to_window(f->mlx, f->img, 0, 0) == -1)
 	{
 		mlx_close_window(f->mlx);
-		return(EXIT_FAILURE);
+		return (EXIT_FAILURE);
 	}
 	return (0);
 }
