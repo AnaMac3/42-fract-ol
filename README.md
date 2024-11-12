@@ -14,7 +14,7 @@ El objetivo de este proyecto es crear un programa de exploración de fractales, 
 
 DEFINICIÓN DE FRACTAL, EXPLICAR CÓMO SE REPITE EL PATRÓN HASTA EL INFINITO
 
-<img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/thumbnail_image1.png" alt="Mandelbrot" width="400"/>  <img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/thumbnail_image2.png" alt="Mandelbrot zoom" width="400"/>
+<img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/mandelbrot.png" alt="Mandelbrot" width="800"/> 
 
 
 ***Renderizado:***
@@ -97,27 +97,26 @@ Alternativa a la minilix: MLX42 de Codam &rarr; [AQUÍ](https://github.com/42-Fu
 ### Explicación de la función para Mandelbrot y Julia
 
 EXPLICAR UN POCOOOOO
+
 EXPLICAR QUUE HAY QUE ITERAR ESA FUNCIÓN PARA COLOREAR CADA PIXEL DE LA VENTANA GRÁFICA...
 
-<img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/Untitled-2024-10-25-1038.png" alt="Func_mandelbrot_julia" width="900" />
+<img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/funcion_generica.png" alt="Func_mandelbrot_julia" width="900" />
 
 Para el conjunto Julia, podemos establecer diferentes valores de c.
 
-<img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/image4.png" alt="Julia c = 0.285+0.01i" width="400"/>  <img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/thumbnail_image3.png" alt="Julia c = 0.279" width="400"/> 
+<img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/julia_c_1.png" alt="Julia1" width="800"/>
 
-***Julia, c = 0.285+0.01i***                 ***Julia, c = 0.279+0.0i*** 
 
 Otra opción es que el valor de c dependa de la posición del cursor en la ventana gráfica. Así se consiguen efects chulos.
 
-<img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/Screenshot%20from%202024-11-12%2016-54-47.png" alt="Julia1" width="400"/>  <img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/Screenshot%20from%202024-11-12%2016-54-59.png" alt="Julia c = 0.279" width="400"/>  <img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/Screenshot%20from%202024-11-12%2016-55-13.png" alt="Julia c = 0.279" width="400"/>  <img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/Screenshot%20from%202024-11-12%2016-55-29.png" alt="Julia c = 0.279" width="400"/> 
-
+<img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/julia_c_2.png" alt="Julia2" width="800"/>  
 
 
 ### Explicación de la función para Burning ship
 
 ES IGUAL QUE LA DE MANDELBROT, PERO CON VALORES ABSOLUTOS...
 
-<img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/image5.png" alt="Burning ship zoom" width="400"/> 
+<img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/burning_ship.png" alt = "Burning_ship" width="400"/> 
 
 
 
