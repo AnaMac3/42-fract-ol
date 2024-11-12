@@ -5,7 +5,8 @@ Proyecto fract-ol del cursus 42.
 
 - [Introducción](#introducción)
 - [Algunas funciones de la MLX42](#algunas-funciones-de-la-mlx42)
-- [Explicación de la función para Mandelbrot y Julia](#explicación-de-la-función-para-mandelbrot-y-julia)
+- [La función para Mandelbrot y Julia](#la-función-para-mandelbrot-y-julia)
+- [La función para Burning ship](#la-función-para-burning-ship)
 - [Imágenes ejemplo](#imágenes-ejemplo)
 
 ### Introducción
@@ -94,7 +95,7 @@ Alternativa a la minilix: MLX42 de Codam &rarr; [AQUÍ](https://github.com/42-Fu
 | Return   | Nada.|
 
 
-### Explicación de la función para Mandelbrot y Julia
+### La función para Mandelbrot y Julia
 
 EXPLICAR UN POCOOOOO
 
@@ -112,7 +113,7 @@ Otra opción es que el valor de c dependa de la posición del cursor en la venta
 <img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/julia_c_2.png" alt="Julia2" width="800"/>  
 
 
-### Explicación de la función para Burning ship
+### La función para Burning ship
 
 ES IGUAL QUE LA DE MANDELBROT, PERO CON VALORES ABSOLUTOS...
 
