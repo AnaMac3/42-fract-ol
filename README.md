@@ -1,12 +1,9 @@
 # **Fract-ol**
-Proyecto pipex del cursus 42.
+Proyecto fract-ol del cursus 42.
 
 ### Introducción
 
-El objetivo de este proyecto es crear un programa de exploración de fractales.
-
-
-**Cosas que tiene que cumplir el programa:**
+El objetivo de este proyecto es crear un programa de exploración de fractales, usando la librería gráfica miniLibX, o su alternativa MLX42 de Codam.
 
 ***Renderizado:***
   - El programa debe ofrecer los conjuntos de **Julia** y **Mandelbrot**
@@ -30,14 +27,14 @@ Alternativa a la minilix: MLX42 de Codam &rarr; [AQUÍ](https://github.com/42-Fu
 
 | ***mlx_init()***   |                 |
 |------------------|-----------------|
-| ¿Qué hace?      | Inicializa el entorno gráfico y crea una ventana |
+| ¿Qué hace?      | Inicializa el entorno gráfico y crea una ventana.|
 | Prototipo         | mlx_t* mlx_init(int32_t width, int32_t height, const char* title, bool resize)|
 | Parámetros   | width: ancho <br> height: alto <br> title: título <br> resize: true o false, si la ventana cambia de tamaño o no|
 | Return   | Devuelve un puntero a la estructura mlx_t inicializada. |
 
 | ***mlx_loop()***   |                 |
 |------------------|-----------------|
-| ¿Qué hace?      | Mantiene activa la ventana gráfica creada por mlx_init(), se encarga de actualizar su contenido de manera continua en un bucle renderizado, permitiendo que el programa dibuje y responda a eventos hasta que la ventana se cierre. <br>
+| ¿Qué hace?      | Mantiene activa la ventana gráfica creada por mlx_init(), <br> actualiza su contenido de manera continua en un bucle renderizado, <br> permitiendo que el programa dibuje y responda a eventos hasta cerrar la ventana.|
 | Prototipo         |void mlx_loop(mlx_t* mlx)|
 | Parámetros   |mlx: estructura mlx_t inicializada por mlx_init().|
 | Return   | Nada.|
@@ -51,23 +48,23 @@ Alternativa a la minilix: MLX42 de Codam &rarr; [AQUÍ](https://github.com/42-Fu
 
 | ***mlx_terminate()***   |                 |
 |------------------|-----------------|
-| ¿Qué hace?      | Libera recursos y cierra adecuadamente la ventana gráfica y su contexto cuando ya no se necesita|
+| ¿Qué hace?      | Libera recursos y cierra la ventana gráfica y su contexto.|
 | Prototipo         |void mlx_terminate(mlx_t* mlx)|
 | Parámetros   |mlx: estructura mlx_t inicializada por mlx_init().|
 | Return   | Nada.|
 
 | ***mlx_close_window()***   |                 |
 |------------------|-----------------|
-| ¿Qué hace?      | Cierra la ventana en el siguiente ciclo de actualización de GLFW. No cierra la ventana de inmediato, para permitir que el programa termine de limpiar y guardar datos antes de salir |
+| ¿Qué hace?      | Cierra la ventana en el siguiente ciclo de actualización de GLFW. <br> No cierra la ventana de inmediato, para permitir que el programa <br> termine de limpiar y guardar datos antes de salir |
 | Prototipo         |void mlx_close_window(mlx_t* mlx)|
 | Parámetros   |mlx: estructura mlx_t inicializada por mlx_init().|
 | Return   | Nada.|
 
 | ***mlx_key_hook()***   |                 |
 |------------------|-----------------|
-| ¿Qué hace?      | Permite registrar una función de callback de teclado (hook) que se ejecutará cada vez que ocurra un evento de teclado en la ventana.|
+| ¿Qué hace?      | Permite registrar una función de callback de teclado <br> que se ejecutará cada vez que ocurra un evento de teclado en la ventana.|
 | Prototipo         |void mlx_key_hook(mlx_t* mlx, mlx_keyfunc func, void* param)|
-| Parámetros   |mlx: estructura mlx_t inicializada por mlx_init(). <br> func: función de callback que se quiere registrar, que debe tener la firma compatible con mlx_keyfunc <br> param: parámetro adicional |
+| Parámetros   |mlx: estructura mlx_t inicializada por mlx_init(). <br> func: función de callback que se quiere registrar, debe tener la firma <br> compatible con mlx_keyfunc <br> param: parámetro adicional |
 | Return   | Nada.|
 
 | ***mlx_scroll_hook()***   |                 |
