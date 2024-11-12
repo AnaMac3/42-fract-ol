@@ -5,7 +5,6 @@ Proyecto pipex del cursus 42.
 
 El objetivo de este proyecto es crear un programa de exploración de fractales.
 
-Alternativa a la minilix: MLX42 de Codam &rarr; [AQUÍ](https://github.com/42-Fundacion-Telefonica/MLX42)
 
 **Cosas que tiene que cumplir el programa:**
 
@@ -24,6 +23,8 @@ Alternativa a la minilix: MLX42 de Codam &rarr; [AQUÍ](https://github.com/42-Fu
   - ESC debe cerrar la ventana y alir del programa de manera limpia.
   - Hacer click en la cruz del marco de la ventana debe cerrarla y cerrar el programa de manera limpia.
   - El uso de images de la MiniLibx es obligatorio.
+
+Alternativa a la minilix: MLX42 de Codam &rarr; [AQUÍ](https://github.com/42-Fundacion-Telefonica/MLX42)
 
 ### Algunas funciones de la MLX42
 
@@ -86,11 +87,21 @@ Alternativa a la minilix: MLX42 de Codam &rarr; [AQUÍ](https://github.com/42-Fu
 
 ### Explicación de la función para Mandelbrot y Julia
 
-<img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/Untitled-2024-10-25-1038.png" alt="Mandelbrot" width="900" />
+<img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/Untitled-2024-10-25-1038.png" alt="Func_mandelbrot_julia" width="900" />
 
+### Ejemplos
 
+**Conjunto Mandelbrot**
 
+<img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/thumbnail_image1.png" alt="Mandelbrot" width="400"/>  <img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/thumbnail_image2.png" alt="Mandelbrot zoom" width="400"/>
 
+**Conjunto Julia**
+
+<img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/image4.png" alt="Julia c = 0.285+0.01i" width="400"/>  <img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/thumbnail_image3.png" alt="Julia c = 0.279" width="400"/> 
+
+**Conjunto Burning ship**
+
+<img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/image5.png" alt="Burning ship zoom" width="400"/> 
 
 
 
