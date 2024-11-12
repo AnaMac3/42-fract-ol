@@ -6,7 +6,7 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 14:13:01 by amacarul          #+#    #+#             */
-/*   Updated: 2024/11/11 19:14:14 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/11/12 13:57:53 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 /*Draws the fractal
 	- Iterates through each pixel in the x and y axis, from 0 to the
 	width and height of the window
-	- Computes the corresponding fractal (mandelbrot, julia) for each pixel
+	- Computes the corresponding fractal (mandelbrot, julia, burning_ship) 
+	for each pixel
 	- Displays the resulting image in the window
 */
 int	fct_draw_fractal(t_fractol *f)
