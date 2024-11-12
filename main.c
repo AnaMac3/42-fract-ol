@@ -6,7 +6,7 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 11:11:33 by amacarul          #+#    #+#             */
-/*   Updated: 2024/11/12 11:09:56 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/11/12 16:27:47 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	fct_help_msg(void)
 	ft_putstr_fd(" - 'pattern_2' for c = 0.8, 0.156i\n", 1);
 	ft_putstr_fd(" - 'pattern_3' for c = -0.70176, 0.6506i\n", 1);
 	ft_putstr_fd(" - 'pattern_4' for c = 0.285, 0.01i\n", 1);
-	ft_putstr_fd(" - 'pattern_5' for c =  0.279, 0.0i\n", 1);
+	ft_putstr_fd(" - 'pattern_5' for c = -0.70176, 0.3504i\n", 1);
 	ft_putstr_fd(" - 'pattern_6' for c = -0.4, 0.6i\n", 1);
 	ft_putstr_fd(" - 'pattern_7' for c = 0.355, 0.355i\n", 1);
 }
