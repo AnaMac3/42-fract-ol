@@ -1,6 +1,13 @@
 # **Fract-ol**
 Proyecto fract-ol del cursus 42.
 
+## Índice
+
+- [Introducción](#introducción)
+- [Algunas funciones de la MLX42](#algunas-funciones-de-la-mlx42)
+- [Explicación de la función para Mandelbrot y Julia](#explicación-de-la-función-para-mandelbrot-y-julia)
+- [Imágenes ejemplo](#imágenes-ejemplo)
+
 ### Introducción
 
 El objetivo de este proyecto es crear un programa de exploración de fractales, usando la librería gráfica miniLibX, o su alternativa MLX42 de Codam.
@@ -84,9 +91,16 @@ Alternativa a la minilix: MLX42 de Codam &rarr; [AQUÍ](https://github.com/42-Fu
 
 ### Explicación de la función para Mandelbrot y Julia
 
+EXPLICAR UN POCOOOOO
+EXPLICAR QUUE HAY QUE ITERAR ESA FUNCIÓN PARA COLOREAR CADA PIXEL DE LA VENTANA GRÁFICA...
+
 <img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/Untitled-2024-10-25-1038.png" alt="Func_mandelbrot_julia" width="900" />
 
-### Ejemplos
+Para el conjunto Julia, podemos establecer diferentes valores de c.
+
+Otra opción es que el valor de c dependa de la posición del cursor en la ventana gráfica. Así se consiguen efects chulos.
+
+### Imágenes ejemplo
 
 **Conjunto Mandelbrot**
 
