@@ -88,7 +88,7 @@ Alternativa a la minilix: MLX42 de Codam &rarr; [AQUÍ](https://github.com/42-Fu
 
 Estructura GLFWwindow de la biblioteca GLFW. Representa una ventana y su contexto de OpenGL asociado. GLFWwindow almacena datos relacionados con eventos como el teclado, el ratón y el cambio de tamaño de la ventana. El callback de cambio de tamaño es glfwSetWindowSizeCallback, y usa GLFWwindow para detectar cuando el usuario ajusta las dimensiones de la ventana.
 
-### MANDELBROT
+### Explicación de la función para Mandelbrot y Julia
 
 <img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/Untitled-2024-10-25-1038.png" alt="Mandelbrot" width="900" />
 
