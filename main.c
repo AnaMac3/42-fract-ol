@@ -6,7 +6,7 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 11:11:33 by amacarul          #+#    #+#             */
-/*   Updated: 2024/11/11 19:41:18 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/11/12 11:09:56 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	fct_help_msg(void)
 {
 	ft_putstr_fd("Usage: ./fractol fractal_type julia_pattern\n\n", 1);
 	ft_putstr_fd("fractal_type:\n - 'mandelbrot'\n - 'julia'\n", 1);
-	ft_putstr_fd(" - 'burning_ship\n\n", 1);
+	ft_putstr_fd(" - 'burning_ship'\n\n", 1);
 	ft_putstr_fd("julia_pattern (only if fractal_type == 'julia'):\n", 1);
 	ft_putstr_fd(" - 'pattern_f' for c = mouse position when click\n", 1);
 	ft_putstr_fd(" - 'pattern_1' for c = 0.279\n", 1);

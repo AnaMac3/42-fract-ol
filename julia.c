@@ -6,7 +6,7 @@
 /*   By: amacarul <amacarul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 13:44:10 by amacarul          #+#    #+#             */
-/*   Updated: 2024/11/11 17:47:41 by amacarul         ###   ########.fr       */
+/*   Updated: 2024/11/11 19:44:54 by amacarul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	fct_pred_julia_patterns(t_fractol *f)
 	f->patterns[1] = (t_pattern){"pattern_2", -0.8, 0.156};
 	f->patterns[2] = (t_pattern){"pattern_3", -0.70176, 0.6506};
 	f->patterns[3] = (t_pattern){"pattern_4", 0.285, 0.01};
-	f->patterns[4] = (t_pattern){"pattern_5", 0.279, 0.0};
+	f->patterns[4] = (t_pattern){"pattern_5", -0.70176, 0.3504};
 	f->patterns[5] = (t_pattern){"pattern_6", -0.4, 0.6};
 	f->patterns[6] = (t_pattern){"pattern_7", 0.355, 0.355};
 }

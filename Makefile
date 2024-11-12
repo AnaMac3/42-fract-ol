@@ -27,14 +27,16 @@ all: $(NAME)
 $(FRT_LIB_NAME): $(OBJ_FILES) $(LIBFT_NAME)
 	ar rcs $@ $(OBJ_FILES)
 
-$(NAME): $(OBJ_FILES) $(FRT_LIB_NAME) $(LIBFT_NAME)
+$(NAME): $(OBJ_FILES) $(FRT_LIB_NAME) $(LIBFT_NAME) $(MLX_NAME)
 	$(CC) $(CFLAGS) $(OBJ_FILES) -L. -lfractol -L$(LIBFT_DIR) -lft $(LINK_FLAGS) $(MLX_NAME) -o $(NAME)
 
 $(LIBFT_NAME):
 	@make -C $(LIBFT_DIR)
 
 $(MLX_NAME):
-	@make -C $(MLX_DIR) DEBUG=1 -B $(MLX_DIR)/build && make -C $(MLX_DIR)/build -j4
+	@cmake -S $(MLX_DIR) -B $(MLX_DIR)/build
+	@cmake --build $(MLX_DIR)/build -j4
+#	@make -C $(MLX_DIR) DEBUG=1 -B $(MLX_DIR)/build && make -C $(MLX_DIR)/build -j4
 
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@ $(HEADERS)
@@ -44,12 +46,12 @@ $(OBJ_DIR):
 
 clean:
 	@if [ -d $(OBJ_DIR) ]; then rm -rf $(OBJ_DIR); fi
-	@make clean -C $(MLX_DIR)
+	@rm -rf $(MLX_DIR)/build
 	@make clean -C $(LIBFT_DIR)
 
 fclean: clean
-	rm -f $(NAME)
-	@make fclean -C $(LIBFT_DIR)
+	rm -f $(NAME) $(FRT_LIB_NAME)
+	@make fclean -C $(LIBFT_DIR) 
 
 re: fclean all
 
