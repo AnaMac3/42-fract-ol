@@ -13,7 +13,7 @@ Proyecto fract-ol del cursus 42.
 
 El objetivo de este proyecto es crear un programa de exploración de fractales, usando la librería gráfica miniLibX, o su alternativa MLX42 de Codam.
 
-DEFINICIÓN DE FRACTAL, EXPLICAR CÓMO SE REPITE EL PATRÓN HASTA EL INFINITO
+Un fractal es una forma geométrica en el se repite la misma estructura a diferentes escalas y con diferente orientación.
 
 <img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/mandelbrot.png" alt="Mandelbrot" width="800"/> 
 
