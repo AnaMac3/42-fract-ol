@@ -7,7 +7,6 @@ Proyecto fract-ol del cursus 42.
 - [Algunas funciones de la MLX42](#algunas-funciones-de-la-mlx42)
 - [La función para Mandelbrot y Julia](#la-función-para-mandelbrot-y-julia)
 - [La función para Burning ship](#la-función-para-burning-ship)
-- [Imágenes ejemplo](#imágenes-ejemplo)
 
 ### Introducción
 
@@ -97,9 +96,56 @@ Alternativa a la minilix: MLX42 de Codam &rarr; [AQUÍ](https://github.com/42-Fu
 
 ### La función para Mandelbrot y Julia
 
-EXPLICAR UN POCOOOOO
+Los conjuntos Julia y Mandelbrot se definen a partir de la iteración de la siguiente fórmula:
 
-EXPLICAR QUUE HAY QUE ITERAR ESA FUNCIÓN PARA COLOREAR CADA PIXEL DE LA VENTANA GRÁFICA...
+$$
+z_{n+1} = z_{n}^2 + c
+$$
+
+Donde:
+- $z_{n}$ es un número complejo que evoluciona con cada iteración.
+- $c$ es un parámetro complejo, cuya forma de utilización varía entre los dos conjuntos.
+- $z_{0}$ es el valor inicial, y es diferente en cada conjunto.
+
+**Números complejos**
+
+Las fractales se basan en números complejos, que son números que tienen una parte real y otra imaginaria. Un número complejo se representa como:
+
+$$
+z = a + b_{i}
+$$
+
+Donde:
+- $a$ es la parte real.
+- $b$ es la parte imaginaria.
+- $i$ es la unidad imaginaria, con la propiedad $i² = -1$.
+
+**Representación gráfica de números complejos**
+
+- La parte real $a$ del número complejo se puede representar en el eje x.
+- La parte imaginaria $b$ del número complejo se puede representar en el eje y.
+
+Por ejemplo, las coordenadas $(3, 7)$ representarían el númer $z = 3 + 7_{i}$; se podría usar cada píxel de una ventana gráfica para representar ese número.
+
+
+Los conjuntos de Julia y Mandelbrot se definen a partir de la misma fórmula iterativa, la diferencia entre ellos radica en el significado de los parámetros $z$ y $c$.
+
+**Mandelbrot**
+
+- Comienza con $z_{0} = 0$ y se aplica la fórmula iterativamente.
+- El parámetro $c$ varía para cada punto del plano complejo (es decir, para cada píxel de la visualización).
+- Si la secuencia de iteraciones de $z_{n}$ no tiende al infinito, entonces el número complejo $c$ pertenece al conjunto de Mandelbrot.
+- Si la secuencia $z_{n}$ tiende al infinito, entonces $c$ no pertenece al conjunto.
+- Visualización: los puntos $c$ que pertenecen al conjunto se colorean típicamente en negro. Los puntos fuera del conjunto, los que "escapan" al infinito, se colorean según la rapidez con la que divergen, es decir, en función del número de iteraciones necessarias para que $z_{n}$ salga de una región específica (normalmente un círculo de radio 2 en el plano complejo).
+
+**Julia**
+
+- El parámetro $c$ es un valor fijo (el mismo para todo el conjunto).
+- El valor $z_{0}$ varía para cada punto del plano complejo (es decir, para cada píxel).
+- Si la secuencia de iteraciones $z_{n}$ no tiende al infinito, el punto $z_{0}$ pertenece al conjunto de Julia para ese valor de $c$.
+- Si la secuencia de iteraciones $z_{n}$ tiende al infinito, entonces $z_{0}$ no pertenece al conjunto.
+- Visualización: los puntos que pertenecen al conjunto son generalmente coloreados en negro. Los puntos que no pertenecen al conjunto se colorean dependiendo de la rapidez con la que divergen.
+- Existen diferentes conjuntos de Julia para cada valor de $c$.
 
 <img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/funcion_generica.png" alt="Func_mandelbrot_julia" width="900" />
 
