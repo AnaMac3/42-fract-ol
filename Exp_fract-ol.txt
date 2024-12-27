@@ -1,0 +1,92 @@
+
+CÓMO USAR LA MINILIBX:
+
+Minilibx --> https://harm-smits.github.io/42docs/libs/minilibx
+
+	Extraer archivo minilibx: tar -xvzf minilibx-linux.tgz
+	Esto crea un directorio llamado minilibx-linux 
+	Compilar minilibx:
+		cd minilibx-linux
+		make
+	Incluir la minilibx en tu proyecto:
+		
+		https://github.com/mcombeau/fract-ol/blob/main/includes/fractol.h
+		
+MINILIBX DE CODAM: MLX42 --> https://github.com/42-Fundacion-Telefonica/MLX42
+
+git clone https://github.com/codam-coding-college/MLX42.git
+cd MLX42
+cmake -B build # build here refers to the outputfolder.
+cmake --build build -j4 # or do make -C build -j4
+	
+EXPLICACIÓN DE LAS FRACTALES Y CÓMO REPRESENTARLAS
+
+Los conjuntos Julia y Mandelbrot se definen de la siguiente manera:
+	zn+1 = zn2 + c
+Los fractales se basan en números complejos, es decir, números que tienen una parte real y otra imaginaria (z = a + bi) (donde i es la unidad imaginaria, con la propiedad de i2 = -1).
+
+	- La parte real a del número complejo se puede representar en el eje x.
+	- La parte imaginaria b del número complejo se puede representar en el eje y.
+	- Esto significa que las coordendas (3, 7) representan el número z = 3 + 7i, y cada pixel de una ventana puede ser usado para representar ese número.
+
+Todo número complejo en la fórmula:
+	- convergerá a un número infinito (si z se mantiene en un valor fijo o tiende a un valor en concreto)
+	- divergerá al infinito (si z tiende al infinito)
+Los píxeles de la ventana pueden colorearse dependiendo de si el número complejo que representan converge o diverge.
+
+Para los conjuntos Mandelbrot y Julia la idea es iterar una fórmula que involucra números complejos para ver cómo se comportan.
+	- Mandelbrot: comenzamos con z = 0 y aplicamos la fórmula iterativamente, usando un número complejo c que varía dependiendo de cada píxel.
+	- Julia: empezando con diferentes valores de z (según la posición del pixel) y usamos un valor fijo de c.
+	
+La fórmula iterativa es zn+1 = zn2 + c
+	- zn es el número complejo en la n-ésima iteración
+	- c es un número complejo que puede variar dependiendo de la posición del pixel en la pantalla o ser fijo, según el tipo de fractal.
+
+Mandelbrot: solo pertenecen al conjunto de Mandelbrot los puntos c para los cuales la secuencia de z no diverge cuando empiezas con z = 0. Es decir, pertenecen a Mandelbrot los puntos c para los cuales z no tiende al infinito.
+
+
+
+
+Julia: la convergencia o divergencia depende de la posición del punto z en el plano, mientras que c se mantiene fijo.
+
+Colorear los píxeles: cada pixel representa un número complejo z (o c en caso de Mandelbrot). Para colorear los píxeles:
+	- Si el valor de z diverge rápidamente (llega a un valor muy alto después de pocas iteraciones) el color puede ser claro brillante.
+	- Si el valor de z converge o diverge muy lentamente, el color puede ser más oscuro o suave.
+	Así, el color de cada pixel representa cuántas iteraciones fueron necesarias para determinar si z (o c) converge o diverge.
+	
+	
+DEBUG:
+
+En una terminal hacer:
+	% valgrind --vgdb=yes --vgdb-error=0 ./fractol mandelbrot
+
+En otra terminal:
+	gdb ./fractol
+	
+	poner: target remote | /usr/bin/vgdb --pid=2794153
+	(el pid que te da el valgrind)
+	poner break points : b main
+	(gdb) continue
+	(gdb) next -> para ejecutar siguiente línea de cmd sin entrar en funciones ni llamadas
+	(gdb) step -> para entrar a función
+	
+	terminar: quit
+	
+CON ESTO VEO:
+que hay un strcmp que no es mio dando problemas (2 veces)
+
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
