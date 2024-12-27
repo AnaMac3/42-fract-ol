@@ -6,7 +6,8 @@ Proyecto fract-ol del cursus 42.
 - [Introducción](#introducción)
 - [Algunas funciones de la MLX42](#algunas-funciones-de-la-mlx42)
 - [La función para Mandelbrot y Julia](#la-función-para-mandelbrot-y-julia)
-- [La función para Burning ship](#la-función-para-burning-ship)
+- [Bonus](#bonus)
+- [Recursos](#recursos)
 
 ### Introducción
 
@@ -107,7 +108,7 @@ Donde:
 - $c$ es un parámetro complejo, cuya forma de utilización varía entre los dos conjuntos.
 - $z_{0}$ es el valor inicial, y es diferente en cada conjunto.
 
-**Números complejos**
+***Números complejos***
 
 Las fractales se basan en números complejos, que son números que tienen una parte real y otra imaginaria. Un número complejo se representa como:
 
@@ -120,7 +121,7 @@ Donde:
 - $b$ es la parte imaginaria.
 - $i$ es la unidad imaginaria, con la propiedad $i² = -1$.
 
-**Representación gráfica de números complejos**
+***Representación gráfica de números complejos***
 
 - La parte real $a$ del número complejo se puede representar en el eje x.
 - La parte imaginaria $b$ del número complejo se puede representar en el eje y.
@@ -130,7 +131,7 @@ Por ejemplo, las coordenadas $(3, 7)$ representarían el númer $z = 3 + 7_{i}$;
 
 Los conjuntos de Julia y Mandelbrot se definen a partir de la misma fórmula iterativa, la diferencia entre ellos radica en el significado de los parámetros $z$ y $c$.
 
-**Mandelbrot**
+***Mandelbrot***
 
 - Comienza con $z_{0} = 0$ y se aplica la fórmula iterativamente.
 - El parámetro $c$ varía para cada punto del plano complejo (es decir, para cada píxel de la visualización).
@@ -138,7 +139,7 @@ Los conjuntos de Julia y Mandelbrot se definen a partir de la misma fórmula ite
 - Si la secuencia $z_{n}$ tiende al infinito, entonces $c$ no pertenece al conjunto.
 - Visualización: los puntos $c$ que pertenecen al conjunto se colorean típicamente en negro. Los puntos fuera del conjunto, los que "escapan" al infinito, se colorean según la rapidez con la que divergen, es decir, en función del número de iteraciones necessarias para que $z_{n}$ salga de una región específica (normalmente un círculo de radio 2 en el plano complejo).
 
-**Julia**
+***Julia***
 
 - El parámetro $c$ es un valor fijo (el mismo para todo el conjunto).
 - El valor $z_{0}$ varía para cada punto del plano complejo (es decir, para cada píxel).
@@ -159,12 +160,15 @@ Otra opción es que el valor de c dependa de la posición del cursor en la venta
 <img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/julia_c_2.png" alt="Julia2" width="800"/>  
 
 
-### La función para Burning ship
+### Bonus
 
-ES IGUAL QUE LA DE MANDELBROT, PERO CON VALORES ABSOLUTOS...
+La fórmula para el conjunto Burning Ship es igual que la de Mandelbrot, pero con valores absolutos.
 
 <img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/burning_ship.png" alt = "Burning_ship" width="400"/> 
 
+### Recursos
+
+Alternativa a la minilix: MLX42 de Codam &rarr; [AQUÍ](https://github.com/42-Fundacion-Telefonica/MLX42)
 
 
 
