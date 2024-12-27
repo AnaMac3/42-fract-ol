@@ -82,14 +82,14 @@ Alternativa a la minilix: MLX42 de Codam &rarr; [AQUÍ](https://github.com/42-Fu
 
 | ***mlx_scroll_hook()***   |                 |
 |------------------|-----------------|
-| ¿Qué hace?      | GDSFGSFGGGG.|
+| ¿Qué hace?      | Permite registrar una función de callback que se ejecutará <br> cuando se detecto un evento de desplazamiento (scroll)|
 | Prototipo         |void mlx_scroll_hook(mlx_t* mlx, mlx_scrollfunc func, void* param)|
-| Parámetros   |mlx: estructura mlx_t inicializada por mlx_init(). <br> func: función de callback que se quiere registrar, que debe tener la firma compatible con mlx_scrollfunc <br> param: parámetro adicional |
+| Parámetros   |mlx: estructura mlx_t inicializada por mlx_init(). <br> func: función de callback que se quiere registrar, <br> que debe tener la firma compatible con mlx_scrollfunc <br> param: parámetro adicional |
 | Return   | Nada.|
 
 | ***mlx_get_mouse_pos()***   |                 |
 |------------------|-----------------|
-| ¿Qué hace?      | SDGSDFSDFH.|
+| ¿Qué hace?      | Obtiene la posición actual del cursor dentro de la ventana gráfica. |
 | Prototipo         |void mlx_get_mouse_pos(mlx_t* mlx, int32_t* x, int32_t* y)|
 | Parámetros   |mlx: estructura mlx_t inicializada por mlx_init(). <br> x: posición en eje x <br> y: posición en eje y |
 | Return   | Nada.|
@@ -137,7 +137,19 @@ Los conjuntos de Julia y Mandelbrot se definen a partir de la misma fórmula ite
 - El parámetro $c$ varía para cada punto del plano complejo (es decir, para cada píxel de la visualización).
 - Si la secuencia de iteraciones de $z_{n}$ no tiende al infinito, entonces el número complejo $c$ pertenece al conjunto de Mandelbrot.
 - Si la secuencia $z_{n}$ tiende al infinito, entonces $c$ no pertenece al conjunto.
-- Visualización: los puntos $c$ que pertenecen al conjunto se colorean típicamente en negro. Los puntos fuera del conjunto, los que "escapan" al infinito, se colorean según la rapidez con la que divergen, es decir, en función del número de iteraciones necessarias para que $z_{n}$ salga de una región específica (normalmente un círculo de radio 2 en el plano complejo).
+- Visualización: los puntos $c$ que pertenecen al conjunto se colorean típicamente en negro. Los puntos fuera del conjunto, los que "escapan" al infinito, se colorean según la rapidez con la que divergen, es decir, en función del número de iteraciones necessarias para que $z_{n}$ salga de una región específica (normalmente un círculo de radio 2 en el plano complejo**).
+
+**Círculo de radio 2 en el plano complejo: es la región en el plano complejo definida por todos los puntos cuya distancia al origen es menor o igual a 2. Es decir, es el conjunto de números complejos $z = x + iy$ (donde $x$ es la parte real e $y$ es la parte imaginaria) que cumplen esta condición:
+
+$$
+\sqrt{z_x^2 + z_y^2} > 2
+$$
+
+Que, trasladando la raíz cuadrada, queda en la condición:
+
+$$
+z_{x}² + z_{y}² > 4
+$$
 
 ***Julia***
 
@@ -150,17 +162,26 @@ Los conjuntos de Julia y Mandelbrot se definen a partir de la misma fórmula ite
 
 <img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/funcion_generica.png" alt="Func_mandelbrot_julia" width="900" />
 
-Para el conjunto Julia, podemos establecer diferentes valores de c.
+
+
+Para el conjunto Julia, podemos establecer diferentes valores de $c$.
 
 <img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/julia_c_1.png" alt="Julia1" width="800"/>
 
 
-Otra opción es que el valor de c dependa de la posición del cursor en la ventana gráfica. Así se consiguen efects chulos.
+También podemos hacer que el valor de $c$ dependea de la posición del cursor en la ventana gráfica, y hacerlo en plan interactivo.
 
 <img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/julia_c_2.png" alt="Julia2" width="800"/>  
 
 
 ### Bonus
+
+Se pueden conseguir puntos extra haciendo diferentes cosas:
+
+- Un fractal diferente.
+- Que el zoom siga la posición actual del ratón.
+- Moverse con flechas en la ventana gráfica.
+- Que cambie el rango de colores.
 
 La fórmula para el conjunto Burning Ship es igual que la de Mandelbrot, pero con valores absolutos.
 
