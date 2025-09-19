@@ -9,6 +9,8 @@ Proyecto fract-ol del cursus 42.
 - [Bonus](#bonus)
 - [Recursos](#recursos)
 
+------------------------------
+
 ### Introducción
 
 El objetivo de este proyecto es crear un programa de exploración de fractales, usando la librería gráfica miniLibX, o su alternativa MLX42 de Codam.
