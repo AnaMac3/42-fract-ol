@@ -4,6 +4,7 @@ Proyecto fract-ol del cursus 42.
 ## Índice
 
 - [Introducción](#introducción)
+- [How to use](#how-to-use)
 - [Algunas funciones de la MLX42](#algunas-funciones-de-la-mlx42)
 - [La función para Mandelbrot y Julia](#la-función-para-mandelbrot-y-julia)
 - [Bonus](#bonus)
@@ -37,6 +38,39 @@ Un fractal es una forma geométrica en el se repite la misma estructura a difere
   - El uso de images de la MiniLibx es obligatorio.
 
 Alternativa a la minilix: MLX42 de Codam &rarr; [AQUÍ](https://github.com/42-Fundacion-Telefonica/MLX42)
+
+### How to use
+
+- Descargar [MLX42 de Codam](https://github.com/42-Fundacion-Telefonica/MLX42).
+- Build:
+  
+      cd MLX42
+      cmake -B build # build here refers to the outputfolder.
+      cmake --build build -j4 # or do make -C build -j4
+
+- Compilar fract-ol:
+
+      cd ..
+      make
+
+- Ejecutar:
+
+      ./fracto <fractal_type> <julia_pattern>
+
+  - fractal_type:
+    - "mandelbrot"
+    - "julia"
+    - "burning_ship"
+  - julia_pattern (only if fractal_type == "julia")
+    - 'pattern_f' for c = mouse position when click
+    - 'pattern_1' for c = 0.279
+    - 'pattern_2' for c = 0.8, 0.156i
+    - 'pattern_3' for c = -0.70176, 0.6506i
+    - 'pattern_4' for c = 0.285, 0.01i
+    - 'pattern_5' for c = -0.70176, 0.3504i
+    - 'pattern_6' for c = -0.4, 0.6i
+    - 'pattern_7' for c = 0.355, 0.355i
+
 
 ### Algunas funciones de la MLX42
 
