@@ -205,7 +205,7 @@ Para el conjunto Julia, podemos establecer diferentes valores de $c$.
 <img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/julia_c_1.png" alt="Julia1" width="800"/>
 
 
-También podemos hacer que el valor de $c$ dependea de la posición del cursor en la ventana gráfica, y hacerlo en plan interactivo.
+También podemos hacer que el valor de $c$ dependea de la posición del cursor en la ventana gráfica, y hacerlo en modo interactivo.
 
 <img src="https://github.com/AnaMac3/42-fract-ol/blob/main/img/julia_c_2.png" alt="Julia2" width="800"/>  
 
